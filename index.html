@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Pong su GitHub</title>
+    <style>
+        body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background: #000; }
+        canvas { border: 1px solid #fff; background: #111; }
+    </style>
+</head>
+<body>
+    <canvas id="pong" width="800" height="400"></canvas>
+    <script>
+        const canvas = document.getElementById('pong');
+        const ctx = canvas.getContext('2d');
+        const paddleHeight = 80, paddleWidth = 10, ballSize = 10;
+        let ballX = canvas.width / 2, ballY = canvas.height / 2;
+        let ballSpeedX = 5, ballSpeedY = 3;
+        let leftPaddleY = (canvas.height - paddleHeight) / 2;
+        let rightPaddleY = (canvas.height - paddleHeight) / 2;
+        let leftScore = 0, rightScore = 0;
+
+        function draw() {
+            ctx.fillStyle = '#111'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#fff';
+            ctx.fillRect(0, leftPaddleY, paddleWidth, paddleHeight); // Paddle sinistro
+            ctx.fillRect(canvas.width - paddleWidth, rightPaddleY, paddleWidth, paddleHeight); // Paddle destro
+            ctx.beginPath(); ctx.arc(ballX, ballY, ballSize, 0, Math.PI * 2); ctx.fill(); // Palla
+            ctx.font = '30px Arial'; ctx.fillText(leftScore, canvas.width / 4, 50); ctx.fillText(rightScore, 3 * canvas.width / 4, 50);
+        }
+
+        function update() {
+            ballX += ballSpeedX; ballY += ballSpeedY;
+            if (ballY < ballSize || ballY > canvas.height - ballSize) ballSpeedY = -ballSpeedY;
+            if (ballX < paddleWidth + ballSize && ballY > leftPaddleY && ballY < leftPaddleY + paddleHeight) ballSpeedX = -ballSpeedX;
+            if (ballX > canvas.width - paddleWidth - ballSize && ballY > rightPaddleY && ballY < rightPaddleY + paddleHeight) ballSpeedX = -ballSpeedX;
+            if (ballX < 0) { rightScore++; resetBall(); }
+            if (ballX > canvas.width) { leftScore++; resetBall(); }
+        }
+
+        function resetBall() { ballX = canvas.width / 2; ballY = canvas.height / 2; ballSpeedX = -ballSpeedX; ballSpeedY = Math.random() * 6 - 3; }
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'w') leftPaddleY = Math.max(0, leftPaddleY - 20);
+            if (e.key === 's') leftPaddleY = Math.min(canvas.height - paddleHeight, leftPaddleY + 20);
+            if (e.key === 'ArrowUp') rightPaddleY = Math.max(0, rightPaddleY - 20);
+            if (e.key === 'ArrowDown') rightPaddleY = Math.min(canvas.height - paddleHeight, rightPaddleY + 20);
+        });
+
+        function gameLoop() { update(); draw(); requestAnimationFrame(gameLoop); }
+        gameLoop();
+    </script>
+</body>
+</html>
+ 
