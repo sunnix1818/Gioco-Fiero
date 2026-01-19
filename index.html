@@ -29,8 +29,8 @@
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
             background: linear-gradient(145deg, rgba(0,20,60,0.98), rgba(10,0,40,0.98));
             backdrop-filter: blur(10px); border: 3px solid #00ff88; border-radius: 20px;
-            padding: 30px; box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 40px rgba(0,255,136,0.5);
-            min-width: 500px; max-height: 85vh; overflow-y: auto; display: none; pointer-events: all;
+            padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 40px rgba(0,255,136,0.5);
+            min-width: 480px; display: none; pointer-events: all;
             animation: slideIn 0.4s ease-out;
         }
         @keyframes slideIn { from { opacity: 0; transform: translate(-50%, -60%); } to { opacity: 1; transform: translate(-50%, -50%); } }
@@ -43,60 +43,61 @@
             animation: glow 2s ease-in-out infinite alternate;
         }
         @keyframes glow { from { filter: drop-shadow(0 0 10px #00ff88); } to { filter: drop-shadow(0 0 25px #00ff88); } }
-        h2 { margin: 0 0 25px 0; color: #00ff88; font-size: 24px; text-align: center; }
-        h3 { margin: 30px 0 15px 0; color: #ffaa00; font-size: 18px; border-bottom: 2px solid #ffaa00; padding-bottom: 8px; }
-        .settings-group { margin-bottom: 25px; padding: 20px; background: rgba(255,255,255,0.03); border-radius: 12px; border-left: 4px solid #00ff88; }
-        button, input[type="range"], input[type="number"], input[type="checkbox"], select {
-            width: 100%; margin: 8px 0; padding: 12px 15px;
+        h3 { margin: 25px 0 15px 0; color: #ffaa00; font-size: 18px; }
+        button, input[type="range"], input[type="number"], select {
+            width: 100%; margin: 12px 0; padding: 15px 20px;
             background: linear-gradient(145deg, rgba(0,255,136,0.15), rgba(0,255,136,0.05));
-            border: 2px solid rgba(0,255,136,0.5); border-radius: 8px; color: #00ff88;
-            font-family: inherit; font-size: 15px; font-weight: bold; cursor: pointer;
-            transition: all 0.3s ease; box-shadow: 0 3px 12px rgba(0,255,136,0.2);
+            border: 2px solid rgba(0,255,136,0.5); border-radius: 10px; color: #00ff88;
+            font-family: inherit; font-size: 16px; font-weight: bold; cursor: pointer;
+            transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,255,136,0.2);
         }
         button:hover, input[type="range"]:hover, input[type="number"]:hover, select:hover {
             background: linear-gradient(145deg, rgba(0,255,136,0.3), rgba(0,255,136,0.15));
-            border-color: #00ff88; box-shadow: 0 5px 20px rgba(0,255,136,0.4);
-            transform: translateY(-1px);
+            border-color: #00ff88; box-shadow: 0 6px 25px rgba(0,255,136,0.4);
+            transform: translateY(-2px);
         }
         input[type="range"]::-webkit-slider-thumb {
-            appearance: none; width: 22px; height: 22px; background: #00ff88;
-            border-radius: 50%; cursor: pointer; box-shadow: 0 0 8px #00ff88;
+            appearance: none; width: 25px; height: 25px; background: #00ff88;
+            border-radius: 50%; cursor: pointer; box-shadow: 0 0 10px #00ff88;
         }
         input[type="number"] { text-align: center; }
-        input[type="checkbox"] { width: auto; margin-right: 10px; transform: scale(1.3); }
-        label { display: flex; justify-content: space-between; align-items: center; margin: 15px 0 5px; font-size: 14px; color: #aaffcc; }
+        label { display: flex; justify-content: space-between; margin: 20px 0 8px; font-size: 15px; color: #aaffcc; }
         .keybind { 
-            background: rgba(255,170,0,0.25); border-color: #ffaa00; 
-            font-family: monospace; font-size: 16px; font-weight: bold; min-height: 45px;
-            display: flex; align-items: center; justify-content: center;
+            background: rgba(255,170,0,0.2); border-color: #ffaa00; 
+            font-family: monospace; font-size: 18px; font-weight: bold;
+            text-align: center; min-height: 50px; display: flex; align-items: center; justify-content: center;
         }
         .keybind:hover { background: rgba(255,170,0,0.4); }
-        .keybind.active { background: rgba(255,255,0,0.6); box-shadow: 0 0 20px #ffaa00; animation: pulse 0.5s; }
-        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        .keybind.active { background: rgba(255,255,0,0.6); box-shadow: 0 0 20px #ffaa00; }
         #hud {
             position: absolute; top: 20px; right: 20px; background: rgba(0,20,40,0.9);
             backdrop-filter: blur(10px); border: 2px solid rgba(0,255,136,0.6); border-radius: 15px;
-            padding: 20px; min-width: 280px; pointer-events: none; opacity: 0; transition: opacity 0.3s;
+            padding: 20px; min-width: 260px; pointer-events: none; opacity: 0; transition: opacity 0.3s;
         }
         #xpBar { width: 100%; height: 25px; background: rgba(0,0,0,0.6); border: 2px solid #ffaa00; border-radius: 12px; overflow: hidden; margin: 10px 0; }
         #xpFill { height: 100%; background: linear-gradient(90deg, #ff6600, #ffaa00, #00ff88); width: 0%; transition: width 0.6s ease; box-shadow: 0 0 15px #ffaa00; }
         .ability { margin: 8px 0; padding: 10px; background: rgba(255,255,255,0.03); border-radius: 8px; font-size: 13px; border-left: 4px solid #666; transition: all 0.3s; }
         .unlocked { background: rgba(0,255,136,0.2); border-left-color: #00ff88; box-shadow: inset 0 0 10px rgba(0,255,136,0.3); }
-        #scores { position: absolute; top: 20px; left: 20px; font-size: 48px; font-weight: bold; color: #ffffff; text-shadow: 0 0 20px #00ff88, 2px 2px 0 #000; pointer-events: none; text-align: center; }
-        #pauseOverlay, #gameEndOverlay { 
+        #scores { position: absolute; top: 20px; left: 20px; font-size: 48px; font-weight: bold; color: #ffffff; text-shadow: 0 0 20px #00ff88, 2px 2px 0 #000; pointer-events: none; }
+        #gameEndOverlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9); backdrop-filter: blur(8px);
+            display: none; justify-content: center; align-items: center; flex-direction: column;
+            font-size: 36px; text-shadow: 0 0 20px #00ff88; pointer-events: all; z-index: 30;
+        }
+        #pauseOverlay { 
             position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-            background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); 
+            background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); 
             display: none; justify-content: center; align-items: center; flex-direction: column; 
-            font-size: 32px; text-shadow: 0 0 20px #00ff88; pointer-events: all; z-index: 30;
+            font-size: 32px; text-shadow: 0 0 15px #00ff88; pointer-events: all;
         }
         #modeToggle { background: linear-gradient(145deg, #ff4444, #ff6666); border-color: #ff4444; }
         .neon-glow { animation: neonGlow 1.5s ease-in-out infinite alternate; }
         @keyframes neonGlow { 0% { text-shadow: 0 0 10px #00ff88; } 100% { text-shadow: 0 0 30px #00ff88, 0 0 50px #ff00ff; } }
         body.game-playing { cursor: none !important; }
         body.game-paused, body.game-menu { cursor: default !important; }
-        #abilityKeys { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 15px; }
-        .settings-row { display: flex; gap: 15px; }
-        .settings-col { flex: 1; }
+        #abilityKeys { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
+        #gameSettings { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; }
     </style>
 </head>
 <body>
@@ -106,7 +107,7 @@
             <div id="mainMenu" class="panel">
                 <h1 class="neon-glow">🌟 NEON PONG XTREME 🌟</h1>
                 <p style="font-size: 18px; margin-bottom: 30px; opacity: 0.9;">Ultimate Arena Battle Royale</p>
-                <button id="modeToggle" onclick="toggleGameMode()">🤖 Modalità: <span id="modeText">2 Giocatori</span></button>
+                <button id="modeToggle" onclick="toggleGameMode()">🤖 Modalità: 2 Giocatori</button>
                 <div style="display: flex; gap: 10px;">
                     <button onclick="toggleSettings()" style="flex: 1;">⚙️ Impostazioni</button>
                     <button onclick="saveGameData()" style="flex: 1;">💾 Salva</button>
@@ -117,132 +118,100 @@
                     <option value="hard">🔥 Hardcore</option>
                     <option value="xtreme">💀 Xtreme Chaos</option>
                 </select>
-                <div style="font-size: 16px; color: #ffaa00; margin: 20px 0; padding: 15px; background: rgba(255,170,0,0.1); border-radius: 10px; border-left: 4px solid #ffaa00;">
-                    🏆 Limite Vittoria: <span id="currentScoreLimit">11</span> punti
+                <div style="font-size: 14px; color: #ffaa00; margin: 15px 0;">
+                    Limite Vittoria: <span id="currentScoreLimit">11</span> punti
                 </div>
-                <button onclick="startGame()" style="font-size: 20px; padding: 20px;">🚀 BATTAGLIA INIZIO</button>
-                <p style="font-size: 12px; margin-top: 20px; opacity: 0.7;">W/S + ↑↓ | ESC Menu | R Reset | Q/E/SPACE Abilità</p>
+                <button onclick="startGame()">🚀 BATTAGLIA INIZIO</button>
+                <p style="font-size: 12px; margin-top: 20px; opacity: 0.7;">W/S + ↑↓ | ESC Menu | R Reset</p>
             </div>
-            
             <div id="settingsPanel" class="panel">
-                <h2>⚙️ PANEL IMPOSTAZIONI COMPLETO</h2>
+                <h2>⚙️ Controlli Avanzati</h2>
                 
-                <div class="settings-group">
-                    <h3>🎵 AUDIO</h3>
-                    <label>🔊 Volume Master <span id="volumeValue">50</span>%</label>
-                    <input type="range" id="volumeSlider" min="0" max="100" value="50" onchange="updateVolume()">
-                    <label>
-                        <input type="checkbox" id="soundEffects" onchange="toggleSoundEffects()"> 
-                        ✅ Effetti Sonori
-                    </label>
-                </div>
-
-                <div class="settings-group">
-                    <h3>⚙️ GIOCO</h3>
-                    <div class="settings-row">
-                        <div class="settings-col">
-                            <label>🏆 Limite Punti <span id="scoreLimitValue">11</span></label>
-                            <input type="number" id="scoreLimitInput" min="5" max="50" value="11" onchange="updateScoreLimit()">
-                        </div>
-                        <div class="settings-col">
-                            <label>🎯 Sensibilità <span id="sensitivityValue">1.0</span>x</label>
-                            <input type="range" id="sensitivitySlider" min="0.5" max="3" step="0.1" value="1" onchange="updateSensitivity()">
-                        </div>
+                <div id="gameSettings">
+                    <div>
+                        <label>🔊 Volume <span id="volumeValue">50</span>%</label>
+                        <input type="range" id="volumeSlider" min="0" max="100" value="50" onchange="updateVolume()">
                     </div>
-                    <label>
-                        <input type="checkbox" id="paddleTrail" onchange="togglePaddleTrail()"> 
-                        ✨ Scia Paddle
-                    </label>
-                </div>
-
-                <div class="settings-group">
-                    <h3>🎨 GRAFICA</h3>
-                    <label>✨ Qualità Grafica</label>
-                    <select id="graphicsQuality" onchange="updateGraphics()">
-                        <option value="low">⚡ Bassa (60+ FPS)</option>
-                        <option value="medium" selected>🎮 Media</option>
-                        <option value="high">⭐ Alta (Glow + Effetti)</option>
-                    </select>
-                    <label>
-                        <input type="checkbox" id="particles" onchange="toggleParticles()"> 
-                        💫 Particelle
-                    </label>
-                </div>
-
-                <div class="settings-group">
-                    <h3>🎮 TASTI ABILITÀ</h3>
-                    <div id="abilityKeys">
-                        <div>
-                            <label>🚀 Speed Boost</label>
-                            <button class="keybind" id="speedBoostKey" onclick="setKeybind('speedBoost')">[Q]</button>
-                        </div>
-                        <div>
-                            <label>🛡️ Mega Paddle</label>
-                            <button class="keybind" id="megaPaddleKey" onclick="setKeybind('megaPaddle')">[E]</button>
-                        </div>
-                        <div style="grid-column: span 2;">
-                            <label>⚡ PowerUp Random</label>
-                            <button class="keybind" id="powerUpKey" onclick="setKeybind('powerUp')">[SPACE]</button>
-                        </div>
+                    <div>
+                        <label>🏆 Limite Punti <span id="scoreLimitValue">11</span></label>
+                        <input type="number" id="scoreLimitInput" min="5" max="50" value="11" onchange="updateScoreLimit()">
                     </div>
                 </div>
 
-                <div style="display: flex; gap: 10px; margin-top: 25px;">
-                    <button onclick="toggleSettings()" style="flex: 1;">← Menu Principale</button>
-                    <button onclick="loadGameData()" style="flex: 1;">💾 Carica</button>
-                    <button onclick="resetSaveData()" style="flex: 1; background: linear-gradient(145deg, #ff4444, #ff6666);">🗑️ Reset</button>
+                <label>🎨 Qualità Grafica</label>
+                <select id="graphicsQuality" onchange="updateGraphics()">
+                    <option value="low">Bassa (Prestazioni)</option>
+                    <option value="medium" selected>Media</option>
+                    <option value="high">Alta (Glow + Effetti)</option>
+                </select>
+
+                <label>🎯 Sensibilità Paddle <span id="sensitivityValue">1.0</span>x</label>
+                <input type="range" id="sensitivitySlider" min="0.5" max="3" step="0.1" value="1" onchange="updateSensitivity()">
+
+                <h3>🎮 Tasti Abilità Speciali</h3>
+                <div id="abilityKeys">
+                    <div>
+                        <label>🚀 Speed Boost</label>
+                        <button class="keybind" id="speedBoostKey" onclick="setKeybind('speedBoost')">[Q]</button>
+                    </div>
+                    <div>
+                        <label>🛡️ Mega Paddle</label>
+                        <button class="keybind" id="megaPaddleKey" onclick="setKeybind('megaPaddle')">[E]</button>
+                    </div>
+                    <div>
+                        <label>⚡ PowerUp Random</label>
+                        <button class="keybind" id="powerUpKey" onclick="setKeybind('powerUp')">[SPACE]</button>
+                    </div>
                 </div>
+
+                <button onclick="toggleSettings()">← Menu Principale</button>
+                <button onclick="loadGameData()">💾 Carica Progressi</button>
+                <button onclick="resetSaveData()">🗑️ Reset Progressi</button>
             </div>
 
-            <!-- HUD e overlay come prima -->
             <div id="hud">
-                <div>⭐ XP: <div id="xpBar"><div id="xpFill"></div></div></div>
-                <div>📊 Lv.<span id="levelDisplay" style="color: #ffaa00;">1</span></div>
-                <div style="font-size: 11px; margin-top: 8px; color: #ffaa00;">
-                    🎯 Limite: <span id="hudScoreLimit">11</span>
-                </div>
-                <div style="font-size: 12px; margin-top: 10px;">🎮 Abilità:</div>
+                <div>XP: <div id="xpBar"><div id="xpFill"></div></div></div>
+                <div>Livello: <span id="levelDisplay" style="color: #ffaa00; font-weight: bold;">1</span></div>
+                <div style="font-size: 12px; margin-top: 10px;">Abilità:</div>
                 <div id="abilitiesList">
-                    <div class="ability">🚀 Speed [<span id="hudSpeedKey">Q</span>]</div>
-                    <div class="ability">🛡️ Mega [<span id="hudMegaKey">E</span>]</div>
-                    <div class="ability">⚡ Power [<span id="hudPowerKey">SPACE</span>]</div>
+                    <div class="ability">🚀 Speed Boost [<span id="hudSpeedKey">Q</span>]</div>
+                    <div class="ability">🛡️ Mega Paddle [<span id="hudMegaKey">E</span>]</div>
+                    <div class="ability">⚡ PowerUp [<span id="hudPowerKey">SPACE</span>]</div>
+                </div>
+                <div style="font-size: 11px; margin-top: 10px; color: #ffaa00;">
+                    Limite: <span id="hudScoreLimit">11</span> punti
                 </div>
             </div>
-            
             <div id="scores"></div>
+            
             <div id="pauseOverlay">
                 <div class="neon-glow">⏸️ PAUSA</div>
-                <button onclick="resumeGame()" style="margin-top: 20px; width: 220px; font-size: 18px;">▶️ Riprendi</button>
-                <button onclick="showMainMenu()" style="margin-top: 10px; width: 220px;">🏠 Menu</button>
+                <button onclick="resumeGame()" style="margin-top: 20px; width: 200px; font-size: 20px;">Riprendi Gioco</button>
+                <button onclick="showMainMenu()" style="margin-top: 10px; width: 200px;">Menu Principale</button>
             </div>
             
             <div id="gameEndOverlay">
-                <div class="neon-glow" id="winnerText" style="font-size: 42px;">🏆 VITTORIA! 🏆</div>
-                <div style="font-size: 26px; margin: 25px 0;">📊 <span id="finalScore"></span></div>
-                <button onclick="showMainMenu()" style="width: 280px; font-size: 22px; padding: 18px;">⚡ NUOVA PARTITA</button>
+                <div class="neon-glow" id="winnerText">VITTORIA!</div>
+                <div style="font-size: 24px; margin: 20px 0; opacity: 0.8;">Punti Finali: <span id="finalScore"></span></div>
+                <button onclick="showMainMenu()" style="width: 250px; font-size: 22px; margin-top: 20px;">🏆 Nuova Partita</button>
             </div>
         </div>
     </div>
 
     <script>
-        // Global state ESPANSO
+        // Global state
         let canvas, ctx, gameState = 'menu', keys = {}, gameMode = 'twoplayer';
         let settings = { 
             volume: 0.5, graphics: 'medium', sensitivity: 1.0, 
-            difficulty: 'normal', scoreLimit: 11, soundEffects: true,
-            paddleTrail: false, particles: false
+            difficulty: 'normal', scoreLimit: 11 
         };
         let keybinds = { speedBoost: 'KeyQ', megaPaddle: 'KeyE', powerUp: 'Space' };
         let player = { xp: 0, level: 1, abilities: {} };
-        
-        // Game objects
+        let abilityCooldowns = { speedBoost: 0, megaPaddle: 0, powerUp: 0 };
         let ball = {}, leftPaddle = {}, rightPaddle = {}, scores = { left: 0, right: 0 };
-        let gameEnded = false, abilityCooldowns = { speedBoost: 0, megaPaddle: 0, powerUp: 0 };
+        let gameEnded = false;
 
-        const CANVAS_WIDTH = 800, CANVAS_HEIGHT = 600;
-        const CONSTANTS = { PADDLE_HEIGHT: 100, PADDLE_WIDTH: 15, BALL_SIZE: 12, BASE_SPEED_X: 6, BASE_SPEED_Y: 4, PADDLE_SPEED: 12 };
-
-        // DOM References
+        // DOM elements
         const mainMenu = document.getElementById('mainMenu');
         const settingsPanel = document.getElementById('settingsPanel');
         const pauseOverlay = document.getElementById('pauseOverlay');
@@ -250,7 +219,11 @@
         const hud = document.getElementById('hud');
         const body = document.body;
 
-        // Save/Load con TUTTE le impostazioni
+        // Constants
+        const CANVAS_WIDTH = 800, CANVAS_HEIGHT = 600;
+        const CONSTANTS = { PADDLE_HEIGHT: 100, PADDLE_WIDTH: 15, BALL_SIZE: 12, BASE_SPEED_X: 6, BASE_SPEED_Y: 4, PADDLE_SPEED: 12 };
+
+        // SAVEGAME
         function saveGameData() {
             const saveData = { settings, player, keybinds, gameMode };
             localStorage.setItem('neonPongXtreme_save', JSON.stringify(saveData));
@@ -270,25 +243,34 @@
             } catch(e) {}
         }
 
+        // NUOVO: Limite punti
+        function updateScoreLimit() {
+            settings.scoreLimit = parseInt(document.getElementById('scoreLimitInput').value);
+            document.getElementById('scoreLimitValue').textContent = settings.scoreLimit;
+            document.getElementById('currentScoreLimit').textContent = settings.scoreLimit;
+            document.getElementById('hudScoreLimit').textContent = settings.scoreLimit;
+            saveGameData();
+        }
+
         // Keybind system
         let settingKeybind = null;
         function setKeybind(ability) {
             settingKeybind = ability;
             document.getElementById(ability + 'Key').classList.add('active');
-            document.getElementById(ability + 'Key').textContent = '🎯 Premi tasto...';
+            document.getElementById(ability + 'Key').textContent = 'Premi un tasto...';
         }
 
         function updateKeybindDisplay() {
-            const keyMap = { 'KeyQ': 'Q', 'KeyE': 'E', 'KeyW': 'W', 'KeyS': 'S', 'Space': 'SPACE', 'KeyR': 'R' };
-            ['speedBoost', 'megaPaddle', 'powerUp'].forEach(ability => {
-                const key = keybinds[ability];
-                const displayKey = keyMap[key] || key.replace('Key', '');
-                document.getElementById(ability + 'Key').textContent = `[${displayKey}]`;
-                document.getElementById('hud' + ability.charAt(0).toUpperCase() + ability.slice(1) + 'Key').textContent = displayKey;
-            });
+            document.getElementById('speedBoostKey').textContent = keybinds.speedBoost.replace('Key', '').replace('Space', 'SPACE');
+            document.getElementById('megaPaddleKey').textContent = keybinds.megaPaddle.replace('Key', '').replace('Space', 'SPACE');
+            document.getElementById('powerUpKey').textContent = keybinds.powerUp.replace('Key', '').replace('Space', 'SPACE');
+            
+            document.getElementById('hudSpeedKey').textContent = keybinds.speedBoost.replace('Key', '').replace('Space', 'SPACE');
+            document.getElementById('hudMegaKey').textContent = keybinds.megaPaddle.replace('Key', '').replace('Space', 'SPACE');
+            document.getElementById('hudPowerKey').textContent = keybinds.powerUp.replace('Key', '').replace('Space', 'SPACE');
         }
 
-        // Init completo
+        // Init
         window.addEventListener('load', () => {
             canvas = document.getElementById('pongCanvas');
             ctx = canvas.getContext('2d');
@@ -303,44 +285,223 @@
             document.addEventListener('keyup', handleKeyUp);
         });
 
-        // Update UI completa
+        function resizeCanvas() {
+            const rect = canvas.parentNode.getBoundingClientRect();
+            canvas.style.width = rect.width + 'px';
+            canvas.style.height = rect.height + 'px';
+        }
+
         function updateAllUI() {
-            // Base settings
             document.getElementById('volumeSlider').value = settings.volume * 100;
             document.getElementById('volumeValue').textContent = Math.round(settings.volume * 100);
             document.getElementById('scoreLimitInput').value = settings.scoreLimit;
             document.getElementById('scoreLimitValue').textContent = settings.scoreLimit;
             document.getElementById('currentScoreLimit').textContent = settings.scoreLimit;
             document.getElementById('hudScoreLimit').textContent = settings.scoreLimit;
+            document.getElementById('graphicsQuality').value = settings.graphics;
+            document.getElementById('graphicsValue').textContent = settings.graphics.charAt(0).toUpperCase() + settings.graphics.slice(1);
             document.getElementById('sensitivitySlider').value = settings.sensitivity;
             document.getElementById('sensitivityValue').textContent = settings.sensitivity.toFixed(1);
-            document.getElementById('graphicsQuality').value = settings.graphics;
-            
-            // Checkboxes
-            document.getElementById('soundEffects').checked = settings.soundEffects;
-            document.getElementById('paddleTrail').checked = settings.paddleTrail;
-            document.getElementById('particles').checked = settings.particles;
-            
             document.getElementById('difficultySelect').value = settings.difficulty;
-            document.getElementById('modeText').textContent = gameMode === 'single' ? '1 vs Bot' : '2 Giocatori';
-            
             updateXPUI();
             updateAbilitiesUI();
             updateKeybindDisplay();
         }
 
-        // Settings functions
+        // Input
+        function handleKeyDown(e) {
+            keys[e.code] = true;
+            
+            if (settingKeybind && e.code !== 'Escape') {
+                keybinds[settingKeybind] = e.code;
+                document.getElementById(settingKeybind + 'Key').classList.remove('active');
+                updateKeybindDisplay();
+                saveGameData();
+                settingKeybind = null;
+                return;
+            }
+
+            if (e.code === 'Escape') {
+                e.preventDefault();
+                if (settingKeybind) {
+                    settingKeybind = null;
+                    document.querySelector('.keybind.active').classList.remove('active');
+                    return;
+                }
+                if (gameState === 'playing' && !gameEnded) {
+                    pauseOverlay.style.display = 'flex';
+                    body.className = 'game-paused';
+                    gameState = 'paused';
+                }
+                return;
+            }
+
+            if (e.code === 'KeyR') initGameObjects();
+
+            // Abilità
+            if (gameState === 'playing' && !gameEnded) {
+                if (player.abilities.speedBoost && e.code === keybinds.speedBoost && abilityCooldowns.speedBoost <= 0) {
+                    activateAbility('speedBoost');
+                }
+                if (player.abilities.megaPaddle && e.code === keybinds.megaPaddle && abilityCooldowns.megaPaddle <= 0) {
+                    activateAbility('megaPaddle');
+                }
+                if (player.abilities.powerUp && e.code === keybinds.powerUp && abilityCooldowns.powerUp <= 0) {
+                    activateAbility('powerUp');
+                }
+            }
+        }
+
+        function handleKeyUp(e) { keys[e.code] = false; }
+
+        // Game logic con limite punti
+        function update() {
+            if (gameState !== 'playing' || gameEnded) return;
+            updateAbilityCooldowns();
+
+            const speed = CONSTANTS.PADDLE_SPEED * settings.sensitivity;
+
+            // Paddles
+            if (keys['KeyW'] && leftPaddle.y > 0) leftPaddle.y -= speed;
+            if (keys['KeyS'] && leftPaddle.y < CANVAS_HEIGHT - leftPaddle.h) leftPaddle.y += speed;
+
+            if (gameMode === 'single') {
+                const targetY = ball.y - rightPaddle.h / 2;
+                const diff = targetY - rightPaddle.y;
+                rightPaddle.y += Math.max(-8, Math.min(8, diff * 0.15));
+                rightPaddle.y = Math.max(0, Math.min(CANVAS_HEIGHT - rightPaddle.h, rightPaddle.y));
+            } else {
+                if (keys['ArrowUp'] && rightPaddle.y > 0) rightPaddle.y -= speed;
+                if (keys['ArrowDown'] && rightPaddle.y < CANVAS_HEIGHT - rightPaddle.h) rightPaddle.y += speed;
+            }
+
+            // Ball
+            ball.x += ball.vx;
+            ball.y += ball.vy;
+            if (ball.y <= ball.r || ball.y >= CANVAS_HEIGHT - ball.r) ball.vy *= -1;
+
+            if (ball.x <= leftPaddle.x + leftPaddle.w && ball.x >= leftPaddle.x - ball.r &&
+                ball.y >= leftPaddle.y && ball.y <= leftPaddle.y + leftPaddle.h) {
+                ball.vx *= -1;
+            }
+            if (ball.x >= rightPaddle.x - ball.r && ball.x <= rightPaddle.x + rightPaddle.w &&
+                ball.y >= rightPaddle.y && ball.y <= rightPaddle.y + rightPaddle.h) {
+                ball.vx *= -1;
+            }
+
+            // Score + fine partita
+            if (ball.x < 0) { 
+                scores.right++; 
+                addXP(25); 
+                resetBall();
+                checkGameEnd();
+            }
+            else if (ball.x > CANVAS_WIDTH) { 
+                scores.left++; 
+                addXP(20); 
+                resetBall();
+                checkGameEnd();
+            }
+
+            updateScoresDisplay();
+        }
+
+        // NUOVO: Controllo fine partita
+        function checkGameEnd() {
+            if (scores.left >= settings.scoreLimit) {
+                gameEnded = true;
+                document.getElementById('winnerText').textContent = '🥇 GIOCATORE 1 VITTORIA!';
+                document.getElementById('finalScore').textContent = `${scores.left} - ${scores.right}`;
+                gameEndOverlay.style.display = 'flex';
+                body.className = 'game-paused';
+            } else if (scores.right >= settings.scoreLimit) {
+                gameEnded = true;
+                document.getElementById('winnerText').textContent = gameMode === 'single' ? '🤖 BOT VITTORIA!' : '🥈 GIOCATORE 2 VITTORIA!';
+                document.getElementById('finalScore').textContent = `${scores.left} - ${scores.right}`;
+                gameEndOverlay.style.display = 'flex';
+                body.className = 'game-paused';
+            }
+        }
+
+        // Altre funzioni (come prima)
+        function activateAbility(type) {
+            switch(type) {
+                case 'speedBoost':
+                    ball.vx *= 1.8; ball.vy *= 1.5;
+                    abilityCooldowns.speedBoost = 300;
+                    break;
+                case 'megaPaddle':
+                    leftPaddle.h = 180;
+                    setTimeout(() => leftPaddle.h = CONSTANTS.PADDLE_HEIGHT, 5000);
+                    abilityCooldowns.megaPaddle = 600;
+                    break;
+                case 'powerUp':
+                    const randomPower = ['speedBoost', 'megaPaddle'][Math.floor(Math.random() * 2)];
+                    activateAbility(randomPower);
+                    abilityCooldowns.powerUp = 900;
+                    break;
+            }
+            addXP(50);
+        }
+
+        function updateAbilityCooldowns() {
+            Object.keys(abilityCooldowns).forEach(key => {
+                if (abilityCooldowns[key] > 0) abilityCooldowns[key]--;
+            });
+        }
+
+        function resetBall() {
+            ball.x = CANVAS_WIDTH / 2;
+            ball.y = CANVAS_HEIGHT / 2;
+            ball.vx *= -1;
+            ball.vy = (Math.random() - 0.5) * 8;
+        }
+
+        function addXP(amount) {
+            player.xp += amount;
+            player.level = Math.floor(player.xp / 100) + 1;
+            unlockAbilities();
+            updateXPUI();
+            saveGameData();
+        }
+
+        function unlockAbilities() {
+            player.abilities.speedBoost = player.level >= 2;
+            player.abilities.megaPaddle = player.level >= 5;
+            player.abilities.powerUp = player.level >= 10;
+            updateAbilitiesUI();
+        }
+
+        function updateXPUI() {
+            document.getElementById('xpFill').style.width = (player.xp % 100) + '%';
+            document.getElementById('levelDisplay').textContent = player.level;
+        }
+
+        function updateAbilitiesUI() {
+            const abils = document.querySelectorAll('#abilitiesList .ability');
+            abils[0].classList.toggle('unlocked', player.abilities.speedBoost);
+            abils[1].classList.toggle('unlocked', player.abilities.megaPaddle);
+            abils[2].classList.toggle('unlocked', player.abilities.powerUp);
+        }
+
+        function updateScoresDisplay() {
+            document.getElementById('scores').innerHTML = `
+                <div style="font-size: 36px; margin-bottom: 10px;">${scores.left}</div>
+                <div style="font-size: 28px; opacity: 0.8;">VS</div>
+                <div style="font-size: 36px;">${scores.right}</div>
+                <div style="font-size: 16px; margin-top: 10px; opacity: 0.6;">${settings.scoreLimit}</div>
+            `;
+        }
+
+        // Settings
         function updateVolume() { 
             settings.volume = parseInt(document.getElementById('volumeSlider').value) / 100; 
             document.getElementById('volumeValue').textContent = Math.round(settings.volume * 100); 
             saveGameData(); 
         }
-        function updateScoreLimit() { 
-            settings.scoreLimit = Math.max(5, Math.min(50, parseInt(document.getElementById('scoreLimitInput').value)));
-            document.getElementById('scoreLimitInput').value = settings.scoreLimit;
-            document.getElementById('scoreLimitValue').textContent = settings.scoreLimit;
-            document.getElementById('currentScoreLimit').textContent = settings.scoreLimit;
-            document.getElementById('hudScoreLimit').textContent = settings.scoreLimit;
+        function updateGraphics() { 
+            settings.graphics = document.getElementById('graphicsQuality').value; 
+            document.getElementById('graphicsValue').textContent = settings.graphics.charAt(0).toUpperCase() + settings.graphics.slice(1); 
             saveGameData(); 
         }
         function updateSensitivity() { 
@@ -348,23 +509,7 @@
             document.getElementById('sensitivityValue').textContent = settings.sensitivity.toFixed(1); 
             saveGameData(); 
         }
-        function updateGraphics() { 
-            settings.graphics = document.getElementById('graphicsQuality').value; 
-            saveGameData(); 
-        }
-        function toggleSoundEffects() { settings.soundEffects = document.getElementById('soundEffects').checked; saveGameData(); }
-        function togglePaddleTrail() { settings.paddleTrail = document.getElementById('paddleTrail').checked; saveGameData(); }
-        function toggleParticles() { settings.particles = document.getElementById('particles').checked; saveGameData(); }
         function setDifficulty(val) { settings.difficulty = val; saveGameData(); }
-
-        // Resto del codice game loop, input, render rimane identico al precedente
-        // ... (tutte le altre funzioni gameLoop, update, render, etc.)
-
-        function resizeCanvas() {
-            const rect = canvas.parentNode.getBoundingClientRect();
-            canvas.style.width = rect.width + 'px';
-            canvas.style.height = rect.height + 'px';
-        }
 
         function startGame() {
             mainMenu.style.display = 'none';
@@ -377,18 +522,20 @@
             saveGameData();
         }
 
-        function toggleSettings() { 
-            mainMenu.style.display = mainMenu.style.display === 'none' ? 'block' : 'none'; 
-            settingsPanel.style.display = settingsPanel.style.display === 'none' ? 'block' : 'none'; 
+        function initGameObjects() {
+            const diffMod = { easy: 0.7, normal: 1, hard: 1.3, xtreme: 1.6 }[settings.difficulty];
+            ball = { x: 400, y: 300, vx: CONSTANTS.BASE_SPEED_X * diffMod * (Math.random() > 0.5 ? 1 : -1), vy: CONSTANTS.BASE_SPEED_Y * (Math.random() * 0.5 + 0.5), r: CONSTANTS.BALL_SIZE };
+            leftPaddle = { x: 20, y: (CANVAS_HEIGHT - CONSTANTS.PADDLE_HEIGHT)/2, w: CONSTANTS.PADDLE_WIDTH, h: CONSTANTS.PADDLE_HEIGHT };
+            rightPaddle = { x: CANVAS_WIDTH - CONSTANTS.PADDLE_WIDTH - 20, y: (CANVAS_HEIGHT - CONSTANTS.PADDLE_HEIGHT)/2, w: CONSTANTS.PADDLE_WIDTH, h: CONSTANTS.PADDLE_HEIGHT };
+            scores = { left: 0, right: 0 };
         }
 
-        function toggleGameMode() { 
-            gameMode = gameMode === 'twoplayer' ? 'single' : 'twoplayer'; 
-            document.getElementById('modeText').textContent = gameMode === 'single' ? '1 vs Bot' : '2 Giocatori';
-            saveGameData(); 
-            updateAllUI(); 
+        function resumeGame() { 
+            pauseOverlay.style.display = 'none'; 
+            gameState = 'playing'; 
+            body.className = 'game-playing'; 
         }
-
+        
         function showMainMenu() { 
             pauseOverlay.style.display = 'none'; 
             gameEndOverlay.style.display = 'none';
@@ -399,14 +546,56 @@
             body.className = 'game-menu';
         }
 
-        function resumeGame() { 
-            pauseOverlay.style.display = 'none'; 
-            gameState = 'playing'; 
-            body.className = 'game-playing'; 
+        function toggleSettings() { 
+            mainMenu.style.display = mainMenu.style.display === 'none' ? 'block' : 'none'; 
+            settingsPanel.style.display = settingsPanel.style.display === 'none' ? 'block' : 'none'; 
+        }
+
+        function toggleGameMode() { 
+            gameMode = gameMode === 'twoplayer' ? 'single' : 'twoplayer'; 
+            saveGameData(); 
+            updateAllUI(); 
+        }
+
+        function render() {
+            ctx.fillStyle = '#00040f';
+            ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+            ctx.shadowColor = '#00ff88';
+            ctx.shadowBlur = settings.graphics === 'high' ? 25 : 5;
+            ctx.strokeStyle = '#00ff88';
+            ctx.lineWidth = 4;
+            ctx.setLineDash([20, 20]);
+            ctx.beginPath();
+            ctx.moveTo(CANVAS_WIDTH/2, 0);
+            ctx.lineTo(CANVAS_WIDTH/2, CANVAS_HEIGHT);
+            ctx.stroke();
+            ctx.shadowBlur = 0;
+
+            ctx.shadowColor = gameMode === 'single' ? '#ff4444' : '#00ff88';
+            ctx.shadowBlur = settings.graphics === 'high' ? 20 : 8;
+            ctx.fillStyle = gameMode === 'single' ? '#ff4444' : '#00ff88';
+            ctx.fillRect(leftPaddle.x, leftPaddle.y, leftPaddle.w, leftPaddle.h);
+            ctx.fillRect(rightPaddle.x, rightPaddle.y, rightPaddle.w, rightPaddle.h);
+            ctx.shadowBlur = 0;
+
+            ctx.shadowColor = '#ffffff';
+            ctx.shadowBlur = settings.graphics === 'high' ? 35 : 15;
+            ctx.fillStyle = '#ffffff';
+            ctx.beginPath();
+            ctx.arc(ball.x, ball.y, ball.r, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.shadowBlur = 0;
+        }
+
+        function gameLoop() {
+            update();
+            render();
+            requestAnimationFrame(gameLoop);
         }
 
         function resetSaveData() {
-            if (confirm('🗑️ Cancella TUTTI i progressi e impostazioni?')) {
+            if (confirm('Cancella tutti i progressi?')) {
                 localStorage.removeItem('neonPongXtreme_save');
                 location.reload();
             }
